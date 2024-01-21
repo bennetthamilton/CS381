@@ -85,10 +85,19 @@ sub comments {
 		########################## 
 		$_ = $title;
 
-		# Uncomment and replace ... with a substition for ( and anything that follows
-		# $_ ~~ ...
-
-		# Repeat for the other symbols
+		$_ ~~ s:g/\(.*//;    	# remove ( and anything that follows
+		$_ ~~ s:g/\[.*//;    	# remove [ and anything that follows
+		$_ ~~ s:g/\{.*//;    	# remove { and anything that follows
+		$_ ~~ s:g/\\.*//;    	# remove \ and anything that follows
+		$_ ~~ s:g/\/.*//;    	# remove / and anything that follows
+		$_ ~~ s:g/\-.*//;    	# remove - and anything that follows
+		$_ ~~ s:g/_.*//;    	# remove _ and anything that follows
+		$_ ~~ s:g/\+.*//;    	# remove + and anything that follows
+		$_ ~~ s:g/\=.*//;    	# remove = and anything that follows
+		$_ ~~ s:g/\:.*//;    	# remove : and anything that follows
+		$_ ~~ s:g/\`.*//;    	# remove ` and anything that follows
+		$_ ~~ s:g/\".*//;    	# remove " and anything that follows
+		$_ ~~ s:g/feat\..*//;   # remove feat. and anything that follows
 
 		########################## End Task 2
 		

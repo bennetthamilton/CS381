@@ -175,13 +175,13 @@ sub clean {
 		# replace leading/trailing apostrophe
 		$_ = $title;
 
-		# Uncomment and replace ... with a substition to trim apostrophes
-		# $_ ~~ ...    # trim leading apostrophes
-		# $_ ~~ ...    # trim trailing apostrophes
+		# trim whitespace
+        $_ ~~ s/^\s+//;  # trim leading whitespace
+        $_ ~~ s/\s+$//;  # trim trailing whitespace
 
-		# Uncomment and replace ... with a substition to trim whitespace
-		# $_ ~~ ...    # trim leading whitespace
-		# $_ ~~ ...    # trim trailing whitespace
+        # trim apostrophes
+        $_ ~~ s/^\'+//;  # trim leading apostrophes
+        $_ ~~ s/\'+$//;  # trim trailing apostrophes
 
 		########################## End Task 4
 

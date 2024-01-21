@@ -248,10 +248,20 @@ sub stopwords {
 		##########################
 		$_ = $title;
 
-		# Uncomment and replace ... with a substition for "a"
-		# $_ ~~ ...
-
-		# Repeat for the other stopwords
+		$_ ~~ s:g:i/<|w>a<|w> \s//;			# remove a
+		$_ ~~ s:g:i/<|w>an<|w> \s//;		# remove an
+		$_ ~~ s:g:i/<|w>and<|w> \s//;		# remove and
+		$_ ~~ s:g:i/<|w>by<|w> \s//;		# remove by
+		$_ ~~ s:g:i/<|w>for<|w> \s//;		# remove for
+		$_ ~~ s:g:i/<|w>from<|w> \s//;		# remove from
+		$_ ~~ s:g:i/<|w>in<|w> \s//;		# remove in
+		$_ ~~ s:g:i/<|w>of<|w> \s//;		# remove of
+		$_ ~~ s:g:i/<|w>on<|w> \s//;		# remove on
+		$_ ~~ s:g:i/<|w>or<|w> \s//;		# remove or
+		$_ ~~ s:g:i/<|w>out<|w> \s//;		# remove out
+		$_ ~~ s:g:i/<|w>to<|w> \s//;		# remove to
+		$_ ~~ s:g:i/<|w>the<|w> \s//;		# remove the
+		$_ ~~ s:g:i/<|w>with<|w> \s//;		# remove with
 
 		##########################
 		# Add the edited $title to the new array of titles

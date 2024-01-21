@@ -1,8 +1,8 @@
 ######################################### 	
 #    CS 381 - Programming Lab #1		#
 #										#
-#  < SOLUTION >							#
-#  < your email here>					#
+#  < Bennett Hamilton >					#
+#  < hamibenn@oregonstate.edu >			#
 #										#
 #########################################
 my $name = "Bennett Hamilton";

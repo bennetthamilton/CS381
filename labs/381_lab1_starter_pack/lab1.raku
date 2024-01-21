@@ -223,7 +223,7 @@ sub clean {
 		## Set to lowercase 
 		##########################		
 		# minor edit needed to this line (raku has a handy function)
-		@filteredtitles.push: $_;
+		@filteredtitles.push: lc($_);
 		########################## End Task 7
 		
 	}

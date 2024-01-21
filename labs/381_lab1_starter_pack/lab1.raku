@@ -194,11 +194,7 @@ sub clean {
 		##########################
 
 		# Use "next;" to skip lines containing non-ASCII characters
-		##########################
-		##                      ##
-		## <Insert code here>   ##
-		##                      ##
-		##########################
+		next unless $_ ~~ /^<ascii>+$|[\s\']/;
 		
 		########################## End Task 5
 	

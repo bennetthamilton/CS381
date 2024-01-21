@@ -5,7 +5,7 @@
 #  < your email here>					#
 #										#
 #########################################
-my $name = "Replace with Your Name";
+my $name = "Bennett Hamilton";
 
 #########################################
 ##

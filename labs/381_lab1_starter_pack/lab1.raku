@@ -176,12 +176,12 @@ sub clean {
 		$_ = $title;
 
 		# trim whitespace
-        $_ ~~ s/^\s+//;  # trim leading whitespace
-        $_ ~~ s/\s+$//;  # trim trailing whitespace
+        $_ ~~ s/^\s+//;
+        $_ ~~ s/\s+$//;
 
         # trim apostrophes
-        $_ ~~ s/^\'+//;  # trim leading apostrophes
-        $_ ~~ s/\'+$//;  # trim trailing apostrophes
+        $_ ~~ s/^\'//;
+		$_ ~~ s/\'$//;
 
 		########################## End Task 4
 
@@ -194,7 +194,7 @@ sub clean {
 		##########################
 
 		# Use "next;" to skip lines containing non-ASCII characters
-		next unless $_ ~~ /^<ascii>+$|[\s\']/;
+		next if $_ ~~ /<-[a..zA..Z0..9\'\s]>/; 
 		
 		########################## End Task 5
 	
@@ -208,11 +208,10 @@ sub clean {
 		##########################
 
 		# skip if only contains whitespace
-		next if $_ ~~ /^\s*$/;
-
+		next if $_ ~~ /^\s+$/;
 
 		# skip if only contains only an apostrophe
-		next if $_ eq "'";
+		next if $_ ~~ /^\'$/;
 	
 		########################## End Task 6
 	
@@ -222,8 +221,7 @@ sub clean {
 		##########################
 		## Set to lowercase 
 		##########################		
-		# minor edit needed to this line (raku has a handy function)
-		@filteredtitles.push: lc($_);
+		@filteredtitles.push: $_;
 		########################## End Task 7
 		
 	}

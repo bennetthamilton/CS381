@@ -56,7 +56,7 @@ sub extract_title {
 		################
 		## Edit the regex below to capture only song title
 		##
-		if ($track ~~ /(.*)/) {
+		if ($track ~~ /\<SEP\>.*\<SEP\>.*\<SEP\>(.*)$/) {
 		##		
 		############################# End Task 1
 			

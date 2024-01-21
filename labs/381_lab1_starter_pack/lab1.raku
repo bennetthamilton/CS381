@@ -84,7 +84,6 @@ sub comments {
 		## Assign to $_ with smartmatcher (~~)
 		########################## 
 		$_ = $title;
-
 		$_ ~~ s:g/\(.*//;    	# remove ( and anything that follows
 		$_ ~~ s:g/\[.*//;    	# remove [ and anything that follows
 		$_ ~~ s:g/\{.*//;    	# remove { and anything that follows
@@ -124,10 +123,20 @@ sub punctuation {
 	for @tracks -> $title { 
 		##########################
 		$_ = $title;
-		# Uncomment and replace ... with a substition for ?
-		# $_ ~~ ...
-
-		# Repeat for the other symbols
+		$_ ~~ s:g/\?//;    		# remove ?
+		$_ ~~ s:g/\x[00BF]//;   # remove inverted ?
+		$_ ~~ s:g/\!//;    		# remove !
+		$_ ~~ s:g/\x[00A1]//;   # remove inverted !
+		$_ ~~ s:g/\.//;   		# remove .
+		$_ ~~ s:g/\;//;    		# remove ;
+		$_ ~~ s:g/\://;    		# remove :
+		$_ ~~ s:g/\&//;    		# remove &
+		$_ ~~ s:g/\$//;    		# remove $
+		$_ ~~ s:g/\*//;    		# remove *
+		$_ ~~ s:g/\@//;    		# remove @
+		$_ ~~ s:g/\%//;    		# remove %
+		$_ ~~ s:g/\#//;    		# remove #
+		$_ ~~ s:g/\|//;    		# remove |
 
 		########################## End Task 3
 		# Add the edited $title to the new array of titles

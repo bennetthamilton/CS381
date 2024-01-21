@@ -221,7 +221,7 @@ sub clean {
 		##########################
 		## Set to lowercase 
 		##########################		
-		@filteredtitles.push: $_;
+		@filteredtitles.push: lc($_);
 		########################## End Task 7
 		
 	}

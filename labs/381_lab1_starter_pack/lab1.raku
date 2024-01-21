@@ -208,19 +208,11 @@ sub clean {
 		##########################
 
 		# skip if only contains whitespace
-		##########################
-		##                      ##
-		## <Insert code here>   ##
-		##                      ##
-		##########################
+		next if $_ ~~ /^\s*$/;
 
 
 		# skip if only contains only an apostrophe
-		##########################
-		##                      ##
-		## <Insert code here>   ##
-		##                      ##
-		##########################
+		next if $_ eq "'";
 	
 		########################## End Task 6
 	

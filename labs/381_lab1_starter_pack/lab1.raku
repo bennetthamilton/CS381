@@ -167,21 +167,22 @@ sub clean {
 		##########################
 		# LAB 1 TASK 4           #
 		##########################
-		## Add regex substitutions to (1) trim leading and trailing whitespace
-		##    and then (2) leading and trailing apostrophes. 
+		## Add regex substitutions to (1) trim leading and trailing apostrophes
+		##    and then (2) leading and trailing whitespace. 
 		## There will be some trailing apostrophes left after the trailing whitespace is removed
+		## Use the g (greedy) directive
 		##########################
 	
-		# replace leading/trailing apostrophe
+		# replace leading/trailing apostrophe/whitespace with nothing
 		$_ = $title;
 
-		# trim whitespace
-        $_ ~~ s/^\s+//;
-        $_ ~~ s/\s+$//;
-
         # trim apostrophes
-        $_ ~~ s/^\'//;
-		$_ ~~ s/\'$//;
+        $_ ~~ s:g/^\'+//;
+		$_ ~~ s:g/\'+$//;
+		
+		# trim whitespace
+        $_ ~~ s:g/^\s+//;
+        $_ ~~ s:g/\s+$//;
 
 		########################## End Task 4
 
@@ -194,7 +195,7 @@ sub clean {
 		##########################
 
 		# Use "next;" to skip lines containing non-ASCII characters
-		next if $_ ~~ /<-[a..zA..Z0..9\'\s]>/; 
+		next if $_ ~~ /<-[a..zA..Z0..9\'\s]>+/; 
 		
 		########################## End Task 5
 	
@@ -208,7 +209,7 @@ sub clean {
 		##########################
 
 		# skip if only contains whitespace
-		next if $_ ~~ /^\s+$/;
+		next if $_ ~~ /^\s*$/;
 
 		# skip if only contains only an apostrophe
 		next if $_ ~~ /^\'$/;

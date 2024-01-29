@@ -318,8 +318,6 @@ sub build_bigrams {
 sub mcw {
 	# Seed word (arg) for which we find the next word
 	my $word = @_[0];
-	# Store the most common next word in this variable and return it.
-	my $best_word = '';
 	
 	##########################
 	# LAB 2 TASK 2: MCW
@@ -347,6 +345,8 @@ sub mcw {
 	
 	# get all the words that follow $word and sort them
 	my @next_words = %counts{$word}.keys.sort;
+	# initialize best word to first word in list
+	my $best_word = @next_words[0] // '';
 
 	# loop through all available words
 	for @next_words -> $next_word {

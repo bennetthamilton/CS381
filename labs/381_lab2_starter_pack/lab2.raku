@@ -345,13 +345,18 @@ sub mcw {
 	## This comment is longer than your code will be for this task. 
 	##########################
 	
-	
-	##########################
-	##                      ## 
-	## <Insert code here>   ##
-	##                      ##   
-	##########################
+	# get all the words that follow $word and sort them
+	my @next_words = %counts{$word}.keys.sort;
 
+	# loop through all available words
+	for @next_words -> $next_word {
+		# skip if word has been used before
+		next if %word_history{$next_word}:exists;
+		# update best word if count is higher
+		if %counts{$word}{$next_word} > %counts{$word}{$best_word} {
+			$best_word = $next_word;
+		}
+	}
 
 	########################## End Task MCW
 	

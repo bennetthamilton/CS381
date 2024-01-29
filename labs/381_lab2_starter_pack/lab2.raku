@@ -374,7 +374,7 @@ sub mcw {
 
 # This builds a song title based on mcw
 sub sequence {
-	# if ($DEBUG) {say "<sequence for \'@_[0]\'>\n";}	
+	if ($DEBUG) {say "<sequence for \'$_[0]\'>\n";}	
 	
 	# clear word history for new sequence
 	%word_history = ();
@@ -402,6 +402,10 @@ sub sequence {
 		last if $current_word eq '';			# break if no more words
 		$sequence ~= ' ' ~ $current_word;		# add the word to the sequence
 	}
+
+	# trim leading and trailing whitespaces
+    $sequence ~~ s:g/^\s+//;
+    $sequence ~~ s:g/\s+$//;
 
 	# return the sequence you created instead of this measely string
 	return $sequence;

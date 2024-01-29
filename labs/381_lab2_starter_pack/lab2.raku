@@ -297,13 +297,17 @@ sub build_bigrams {
 	##########################
 	
 	
-	##########################
-	##                      ## 
-	## <Insert code here>   ##
-	##                      ##   
-	##########################
-
-
+	for @tracks -> $title {
+		# split the title into words
+		my @words = $title.split(/\s+/);
+		if (@words > 1) {
+			# loop through the words
+			for 0..@words.elems-2 -> $i {
+				# increment the count for the word pair
+				%counts{@words[$i]}{@words[$i+1]}++;
+			}
+		}
+	}
 	########################## End Task Bigram Counts
 	
 	if ($DEBUG) {say "<bigram model built>\n";}	

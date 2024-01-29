@@ -358,6 +358,9 @@ sub mcw {
 		}
 	}
 
+	# mark the chosen word as used in word history
+    %word_history{$best_word} = 1;
+
 	########################## End Task MCW
 	
 
@@ -371,7 +374,7 @@ sub mcw {
 
 # This builds a song title based on mcw
 sub sequence {
-	if ($DEBUG) {say "<sequence for \'$_[0]\'>\n";}	
+	# if ($DEBUG) {say "<sequence for \'@_[0]\'>\n";}	
 	
 	# clear word history for new sequence
 	%word_history = ();
@@ -390,18 +393,14 @@ sub sequence {
 	
 	
 	# initialize the sequence with the seed word
-    my $sequence = $_[0];
-    my $current_word = $_[0];
+    my $sequence = @_[0];
+    my $current_word = @_[0];
 
 	# loop until sequence is long enough or no more words
 	for 1..$SEQUENCE_LENGTH -> $i {
-		# get the next word and set to current word
-		$current_word = mcw($current_word);
-		# break if no more words
-		last if $current_word eq /\s+/;
-		# add the word to the sequence
-		$sequence ~= ' ' ~ $current_word;
-		# add the word to the history TODO
+		$current_word = mcw($current_word);		# get the next word and set to current word
+		last if $current_word eq '';			# break if no more words
+		$sequence ~= ' ' ~ $current_word;		# add the word to the sequence
 	}
 
 	# return the sequence you created instead of this measely string

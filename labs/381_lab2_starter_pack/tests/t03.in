@@ -1,4 +1,4 @@
-debug on
+debug off
 stopwords on
 length 10
 load tracks.txt

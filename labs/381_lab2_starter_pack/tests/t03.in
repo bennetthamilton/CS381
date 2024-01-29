@@ -1,0 +1,8 @@
+debug on
+stopwords on
+length 10
+load tracks.txt
+preprocess
+sequence hello
+sequence remember
+sequence live

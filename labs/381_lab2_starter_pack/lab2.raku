@@ -389,16 +389,23 @@ sub sequence {
 	##########################
 	
 	
-	##########################
-	##                      ## 
-	## <Insert code here>   ##
-	##                      ##   
-	##########################
+	# initialize the sequence with the seed word
+    my $sequence = $_[0];
+    my $current_word = $_[0];
 
+	# loop until sequence is long enough or no more words
+	for 1..$SEQUENCE_LENGTH -> $i {
+		# get the next word and set to current word
+		$current_word = mcw($current_word);
+		# break if no more words
+		last if $current_word eq /\s+/;
+		# add the word to the sequence
+		$sequence ~= ' ' ~ $current_word;
+		# add the word to the history TODO
+	}
 
-		
 	# return the sequence you created instead of this measely string
-	return "ERROR: SEQUENCE 404";
+	return $sequence;
 	########################## End Task Song Title
 }
 

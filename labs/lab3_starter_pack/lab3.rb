@@ -1,6 +1,6 @@
-#require_relative "element"   # uncomment to load element.rb
-#require_relative "player"    # uncomment to load player.rb 
-#require_relative "history"   # uncomment to load history.rb
+require_relative "element"   # uncomment to load element.rb
+require_relative "player"    # uncomment to load player.rb 
+require_relative "history"   # uncomment to load history.rb
 
 ######################################### 	
 #     CS 381 - Programming Lab #3		#

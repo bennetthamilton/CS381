@@ -9,11 +9,11 @@ class History
   end
 
   def log_play(move)
-    # TODO
+    @plays.push(move)
   end
 
   def log_opponent_play(move)
-    # TODO
+    @opponent_plays.push(move)
   end
 
   def add_score()

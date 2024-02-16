@@ -33,3 +33,21 @@ class RandomBot < Player
     random
   end
 end
+
+class IterativeBot < Player
+  def play
+    #TODO
+  end
+end
+
+class LastPlayBot < Player
+  def play
+    #TODO
+  end
+end
+
+class Human < Player
+  def play
+    #TODO
+  end
+end

@@ -19,15 +19,15 @@ class Rock < Element
   def compare_to(other)
     case other
     when Rock
-      ['Rock equals Rock', 'Tie']
+      "#{@name} equals #{@name}, Tie"
     when Paper
-      ['Paper covers Rock', 'Lose']
+      "#{other.name} covers #{@name}, Lose"
     when Scissors
-      ['Rock crushes Scissors', 'Win']
+      "#{@name} crushes #{other.name}, Win"
     when Lizard
-      ['Rock crushes Lizard', 'Win']
+      "#{@name} crushes #{other.name}, Win"
     when Spock
-      ['Spock vaporizes Rock', 'Lose']
+      "#{other.name} vaporizes #{@name}, Lose"
     end
   end
 
@@ -39,15 +39,15 @@ class Paper < Element
   def compare_to(other)
     case other
     when Rock
-      ['Paper covers Rock', 'Win']
+      "#{@name} covers #{other.name}, Win"
     when Paper
-      ['Paper equals Paper', 'Tie']
+      "#{@name} equals #{@name}, Tie"
     when Scissors
-      ['Scissors cuts Paper', 'Lose']
+      "#{other.name} cuts #{@name}, Lose"
     when Lizard
-      ['Lizard eats Paper', 'Lose']
+      "#{other.name} eats #{@name}, Lose"
     when Spock
-      ['Paper disproves Spock', 'Win']
+      "#{@name} disproves #{other.name}, Win"
     end
   end
 
@@ -59,15 +59,15 @@ class Scissors < Element
   def compare_to(other)
     case other
     when Rock
-      ['Rock crushes Scissors', 'Lose']
+      "#{other.name} crushes #{@name}, Lose"
     when Paper
-      ['Scissors cuts Paper', 'Win']
+      "#{@name} cuts #{other.name}, Win"
     when Scissors
-      ['Scissors equals Scissors', 'Tie']
+      "#{@name} equals #{@name}, Tie"
     when Lizard
-      ['Scissors decapitates Lizard', 'Win']
+      "#{@name} decapitates #{other.name}, Win"
     when Spock
-      ['Spock smashes Scissors', 'Lose']
+      "#{other.name} smashes #{@name}, Lose"
     end
   end
 
@@ -79,15 +79,15 @@ class Lizard < Element
   def compare_to(other)
     case other
     when Rock
-      ['Rock crushes Lizard', 'Lose']
+      "#{other.name} crushes #{@name}, Lose"
     when Paper
-      ['Lizard eats Paper', 'Win']
+      "#{@name} eats #{other.name}, Win"
     when Scissors
-      ['Scissors decapitates Lizard', 'Lose']
+      "#{@name} decapitates #{other.name}, Lose"
     when Lizard
-      ['Lizard equals Lizard', 'Tie']
+      "#{@name} equals #{@name}, Tie"
     when Spock
-      ['Lizard poisons Spock', 'Win']
+      "#{other.name} poisons #{@name}, Win"
     end
   end
 
@@ -99,15 +99,15 @@ class Spock < Element
   def compare_to(other)
     case other
     when Rock
-      ['Spock vaporizes Rock', 'Win']
+      "#{@name} vaporizes #{other.name}, Win"
     when Paper
-      ['Paper disproves Spock', 'Lose']
+      "#{other.name} disproves #{@name}, Lose"
     when Scissors
-      ['Spock crushes Scissors', 'Win']
+      "#{@name} smashes #{other.name}, Win"
     when Lizard
-      ['Lizard poisons Spock', 'Lose']
+      "#{other.name} poisons #{@name}, Lose"
     when Spock
-      ['Spock equals Spock', 'Tie']
+      "#{@name} equals #{@name}, Tie"
     end
   end
 

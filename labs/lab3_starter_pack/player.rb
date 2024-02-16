@@ -9,4 +9,7 @@ class Player
     @history = History.new
   end
 
+  def play
+    fail "This method must be overridden in a subclass"
+  end
 end

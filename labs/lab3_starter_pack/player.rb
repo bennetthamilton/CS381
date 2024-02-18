@@ -36,8 +36,8 @@ end
 
 class IterativeBot < Player
   def play
-    current = @history.total_plays % @moves.length
-    selected = @moves[current]
+    current_index = @history.total_plays % @moves.length
+    selected = @moves[current_index]
     @history.log_play(selected)
     selected
   end

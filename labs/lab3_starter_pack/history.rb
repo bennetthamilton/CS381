@@ -19,4 +19,8 @@ class History
   def add_score()
     @score += 1
   end
+
+  def total_plays
+    @plays.length
+  end
 end

@@ -60,6 +60,34 @@ end
 
 class Human < Player
   def play
-    #TODO
+    display_moves
+    loop do
+      input = get_input
+      
+      case input
+      when 1..5
+        selected = get_move(input)
+        @history.log_play(selected)
+        return selected
+      else
+        puts "Invalid move - try again"
+      end
+  end
+
+  private
+
+  def display_moves
+    @moves.each_with_index do |move, index|
+      puts "#{index + 1}. #{move.name}"
+    end
+  end
+
+  def get_input
+    print "Enter your move: "
+    gets.chomp.to_i
+  end
+
+  def get_move(input)
+    @moves[input - 1]
   end
 end

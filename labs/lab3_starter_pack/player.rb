@@ -2,11 +2,12 @@ require_relative "element"
 require_relative "history"
 
 class Player
-  attr_reader :name, :history
+  attr_reader :name, :history, :moves
 
   def initialize(name, history = History.new)
     @name = name
     @history = history
+    @moves = [Rock.new("Rock"), Paper.new("Paper"), Scissors.new("Scissors"), Lizard.new("Lizard"), Spock.new("Spock")]
   end
 
   def play
@@ -27,8 +28,7 @@ end
 class RandomBot < Player
   def play
     # ref: https://www.geeksforgeeks.org/ruby-array-sample-function/
-    element_array = [Rock.new("Rock"), Paper.new("Paper"), Scissors.new("Scissors"), Lizard.new("Lizard"), Spock.new("Spock")]
-    random = element_array.sample          
+    random = @moves.sample          
     @history.log_play(random)
     random
   end
@@ -36,7 +36,7 @@ end
 
 class IterativeBot < Player
   def play
-    #TODO
+    
   end
 end
 

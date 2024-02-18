@@ -94,9 +94,9 @@ class Human < Player
 end
 
 
-# Test
-p1 = StupidBot.new('StupidBot', History.new)
-p2 = RandomBot.new('RandomBot', History.new)
-p1move = p1.play()
-p2move = p2.play()
-puts p1move.compare_to(p2move)
+# # Test
+# p1 = StupidBot.new('StupidBot', History.new)
+# p2 = RandomBot.new('RandomBot', History.new)
+# p1move = p1.play()
+# p2move = p2.play()
+# puts p1move.compare_to(p2move)

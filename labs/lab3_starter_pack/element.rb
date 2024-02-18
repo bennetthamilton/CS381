@@ -114,9 +114,9 @@ class Spock < Element
 end
 
 
-# Tests
-rock  = Rock.new('Rock')
-paper = Paper.new('Paper')
-puts rock.compare_to(paper)
-puts paper.compare_to(rock)
-puts rock.compare_to(rock)
+# # Tests
+# rock  = Rock.new('Rock')
+# paper = Paper.new('Paper')
+# puts rock.compare_to(paper)
+# puts paper.compare_to(rock)
+# puts rock.compare_to(rock)

@@ -10,20 +10,18 @@ require_relative "history"   # uncomment to load history.rb
 #										#
 #########################################
 
+# constants
+ROUNDS = 5
 
-
-# your code here
-
-
-
-def game(rounds)
-
-	# your code here
-	
+# display the welcome message
+def welcome
+	puts "Welcome to Rock, Paper, Scissors, Lizard, Spock!"
 end
 
+# main function
+def game(rounds)
 
-# Main Program (should be last)
-n_rounds = 5
-# call to kick off the game
-game(n_rounds)
+end
+
+welcome				# call to display the welcome message
+game(ROUNDS)	# call to kick off the game

@@ -54,7 +54,6 @@ class Game
 		display_winner_of(winner, "game")
 	end
 
-	
 
 	private
 
@@ -109,12 +108,12 @@ class Game
 
 	# display final score results
 	def display_results
-		# puts final score is blank to blank
+		print "Final score is #{@players[0].score} to #{@players[1].score}"
 	end
 
 	# display the winner of the round
 	def display_winner_of(winner, type)
-		# puts winning player is the winner of the round/game!
+		puts "#{winner.name} wins the #{type}!"
 	end
 end 
 

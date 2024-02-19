@@ -21,20 +21,6 @@ class Game
 		@history = History.new
 	end
 
-	# select players
-	def select_players
-		# display player options
-		# selcect players loop
-			# get player1 index
-			# get player2 index
-			# if valid players
-				# create player1
-				# create player2
-			# else
-				# display error message
-		# end
-	end
-
 	# play a single round
 	def play_round
 		# get player1 move
@@ -48,11 +34,27 @@ class Game
 
 	# main function
 	def play_game
+		welcome
+		select_players
 		while rounds > 0
 			play_round
 		end
 		display_results
 		display_winner_of(winner, "game")
+	end
+
+	# select players
+	def select_players
+		# display player options
+		# selcect players loop
+			# get player1 index
+			# get player2 index
+			# if valid players
+				# create player1
+				# create player2
+			# else
+				# display error message
+		# end
 	end
 
 	private

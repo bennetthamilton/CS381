@@ -3,11 +3,11 @@ require_relative "player"    # uncomment to load player.rb
 require_relative "history"   # uncomment to load history.rb
 
 ######################################### 	
-#     CS 381 - Programming Lab #3		#
-#										#
-#  < Bennett Hamilton >					 	#
-#  < hamibenn@oregonstate.edu >	                	#
-#										#
+#     CS 381 - Programming Lab #3				#
+#																				#
+#  < Bennett Hamilton >					 				#
+#  < hamibenn@oregonstate.edu >	        #
+#																				#
 #########################################
 
 # constants
@@ -23,13 +23,24 @@ class Game
 
 	# play a single round
 	def play_round
-		# get player1 move
-		# get player2 move
+		puts "Round #{@rounds}"
+		# get player moves
+		@players.each do |player|
+			move = player.play												# get player move
+			puts "#{player.name} chose #{move.name}"	# display player move
+			@history.log_play(move)										# update history
+		end
+
 		# compare moves
+		result = @history.plays.last.compare_to(@history.opponent_plays.last)
+		puts result																# display result
 		# display winner
-		# update history
-		# update rounds
-		# display winner of the round
+		if result.include?("Win")
+			@history.add_score											# update history
+			winner = @players.first
+		end
+		@rounds += 1															# update rounds
+		display_winner_of(winner, "round")				# display winner of the round
 	end
 
 	# main function

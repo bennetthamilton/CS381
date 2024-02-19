@@ -34,11 +34,8 @@ class Game
 		# compare moves
 		result = @history.plays.last.compare_to(@history.opponent_plays.last)
 		puts result																# display result
-		# display winner
-		if result.include?("Win")
-			@history.add_score											# update history
-			winner = @players.first
-		end
+
+		winner = find_winner_of_round							# find winner of the round
 		@rounds += 1															# update rounds
 		display_winner_of(winner, "round")				# display winner of the round
 	end
@@ -50,8 +47,9 @@ class Game
 		while rounds > 0
 			play_round
 		end
-		display_results
-		display_winner_of(winner, "game")
+		winner = find_winner_of_game				# find winner of the game
+		display_results											# display final score results
+		display_winner_of(winner, "game")		# display winner of the game
 	end
 
 
@@ -107,6 +105,28 @@ class Game
 		index.between?(1, Element.subclasses.length)
 	end
 
+	# find the winner of the round
+	def find_winner_of_round
+		if @players[0].score > @players[1].score
+			winner = @players[0]
+		elsif @players[0].score < @players[1].score
+			winner = @players[1]
+		else
+			winner = nil
+		end
+	end
+
+	# find the winner of the game
+	def find_winner_of_game
+		if @players[0].score > @players[1].score
+			winner = @players[0]
+		elsif @players[0].score < @players[1].score
+			winner = @players[1]
+		else
+			winner = nil
+		end
+	end
+
 	# display final score results
 	def display_results
 		print "Final score is #{@players[0].score} to #{@players[1].score}"
@@ -114,8 +134,12 @@ class Game
 
 	# display the winner of the round
 	def display_winner_of(winner, type)
-		puts "#{winner.name} wins the #{type}!"
+		if winner.nil?
+			puts "It's a tie!"
+		else
+			puts "#{winner.name} wins the #{type}!"
 	end
+
 end 
 
 # main play game call

@@ -14,8 +14,10 @@ require_relative "history"   # uncomment to load history.rb
 ROUNDS = 5
 
 class Game
+	attr_accessor :rounds, :players, :history
 
-	def initialize(@rounds)
+	# initialize game
+	def initialize(rounds)
 		@rounds = rounds
 		@players = []
 		@history = History.new
@@ -138,10 +140,11 @@ class Game
 			puts "It's a tie!"
 		else
 			puts "#{winner.name} wins the #{type}!"
+		end
 	end
 
 end 
 
 # main play game call
 game = Game.new(ROUNDS)
-game.play
+game.play_game

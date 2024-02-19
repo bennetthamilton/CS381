@@ -54,9 +54,18 @@ class Game
 		display_winner_of(winner, "game")
 	end
 
+	
+
+	private
+
+	# display the welcome message
+	def welcome
+		puts "Welcome to Rock, Paper, Scissors, Lizard, Spock!"
+	end
+
 	# select players
 	def select_players
-		# display player options
+		display_player_options
 		# selcect players loop
 			# get player1 index
 			# get player2 index
@@ -68,16 +77,12 @@ class Game
 		# end
 	end
 
-	private
-
-	# display the welcome message
-	def welcome
-		puts "Welcome to Rock, Paper, Scissors, Lizard, Spock!"
-	end
-
 	# display player options
 	def display_player_options
-
+		puts "Please select two players: "
+		Player.subclasses.each_with_index do |subclass, index|
+      puts "(#{index + 1}) #{subclass.name}"
+    end
 	end
 
 	# get player input

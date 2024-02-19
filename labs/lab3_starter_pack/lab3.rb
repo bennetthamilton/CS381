@@ -79,7 +79,7 @@ class Game
 
 	# display player options
 	def display_player_options
-		puts "Please select two players: "
+		puts "Please choose two players: "
 		Player.subclasses.each_with_index do |subclass, index|
       puts "(#{index + 1}) #{subclass.name}"
     end

@@ -66,9 +66,9 @@ class Game
 	# select players
 	def select_players
 		display_player_options
-		# selcect players loop
-			# get player1 index
-			# get player2 index
+		loop do
+			player1_index = get_player_index(1)	
+			player2_index = get_player_index(2)
 			# if valid players
 				# create player1
 				# create player2
@@ -87,8 +87,8 @@ class Game
 
 	# get player input
 	def get_player_index(player_number)
-		# puts Select player (player_number)
-		# gets.chomp.to_i
+		puts "Select player #{player_number}: "
+		gets.chomp.to_i
 	end
 
 	# checks if player input is valid

@@ -69,12 +69,13 @@ class Game
 		loop do
 			player1_index = get_player_index(1)	
 			player2_index = get_player_index(2)
-			# if valid players
-				# create player1
-				# create player2
-			# else
-				# display error message
-		# end
+			if valid_player?(player1_index) && valid_player?(player2_index)
+				@players.push(create_player(player1_index))
+				@players.push(create_player(player2_index))
+			else	# display error message
+				puts 'Invalid choice(s) - start over'
+			end
+		end
 	end
 
 	# display player options
@@ -92,8 +93,8 @@ class Game
 	end
 
 	# checks if player input is valid
-	def valid_player?(player_index)
-		# valid if player_index is between 1 and 5
+	def valid_player?(index)
+		index.between?(1, Player.subclasses.length)
 	end
 
 	# create a player
@@ -102,8 +103,8 @@ class Game
 	end
 
 	# checks if move input is valid
-	def valid_move?(move_index)
-		# valid if move_index is between 1 and 5
+	def valid_move?(index)
+		index.between?(1, Element.subclasses.length)
 	end
 
 	# display final score results

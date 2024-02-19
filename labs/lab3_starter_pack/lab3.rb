@@ -98,7 +98,8 @@ class Game
 
 	# create a player
 	def create_player(player_index)
-		# create new player object
+		new_player = Player.subclasses[player_index - 1]
+		new_player.new(new_player.name, @history)
 	end
 
 	# checks if move input is valid

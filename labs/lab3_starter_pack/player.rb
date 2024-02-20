@@ -9,7 +9,6 @@ class Player
     @history = history
     @moves = [Rock.new("Rock"), Paper.new("Paper"), Scissors.new("Scissors"), Lizard.new("Lizard"), Spock.new("Spock")]
     @score = 0
-    # @subclasses = [StupitBot.new("StupidBot"), RandomBot.new("RandomBot"), IterativeBot.new("IterativeBot"), LastPlayBot.new("LastPlayBot"), Human.new("Human")]
   end
 
   def play
@@ -23,10 +22,6 @@ class Player
   def get_move
     @history.plays.last
   end
-
-  # def get_subclasses
-  #   @subclasses
-  # end
 
 end
 

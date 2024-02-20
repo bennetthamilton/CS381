@@ -26,23 +26,30 @@ class Game
 	# play a single round
 	def play_round(current_round)
 		puts "Round #{current_round}:"
-		# get player moves
-		@players.each do |player|
-			move = player.play												# get player move
-			puts "#{player.name} chose #{move.name}"	# display player move
-			@history.log_play(move)										# update history
-		end
-		
-		# compare moves
-		result = @players[0].get_move.compare_to(@players[1].get_move)	# compare moves (player[0] vs. player[1]
-		puts result																# display result
 
-		if result.include?("Tie")										# update scores
+		# get player moves
+		move1 = @players[0].play											# get player move
+		move2 = @players[1].play											# get player move
+		puts "#{players[0].name} chose #{move1.name}"	# display player move
+		puts "#{players[1].name} chose #{move2.name}"	# display player move
+		@history.log_play(move1)											# update history
+		@history.log_opponent_play(move2)							# update history
+
+		# compare moves
+		result = move1.compare_to(move2)							# compare moves
+		puts result																		# display result
+
+		# update scores
+		if result.include?("Win")
+			@players[0].add_score
+		elsif result.include?("Lose")
+			@players[1].add_score
+		elsif result.include?("Tie")											
 			puts "Round was a tie\n\n"
 		else
-			winner = find_winner_of_round							# find winner of the round
-			@rounds += 1															# update rounds
-			display_winner_of(winner, "round")				# display winner of the round
+			winner = find_winner_of_round								# find winner of the round
+			@rounds += 1																# update rounds
+			display_winner_of(winner, "round")					# display winner of the round
 		end
 	end
 

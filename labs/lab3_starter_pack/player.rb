@@ -79,7 +79,7 @@ class Human < Player
 
   def display_moves
     @moves.each_with_index do |move, index|
-      puts "#{index + 1}. #{move.name}"
+      puts "(#{index + 1}) #{move.name}"
     end
   end
 

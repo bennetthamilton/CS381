@@ -162,7 +162,11 @@ class Game
 		if winner.nil?
 			puts "Game was a draw\n\n"
 		else
-			puts "#{winner.name} wins the #{type}!\n\n"
+			if type == "round"
+				puts "#{winner.name} won the #{type}\n\n"
+			else # type == "game"
+				puts "#{winner.name} wins\n\n"
+			end
 		end
 	end
 

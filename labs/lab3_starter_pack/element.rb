@@ -43,7 +43,7 @@ class Paper < Element
     when Paper
       ["#{@name} equals #{@name}", "Tie"]
     when Scissors
-      ["#{other.name} cuts #{@name}", "Lose"]
+      ["#{other.name} cut #{@name}", "Lose"]
     when Lizard
       ["#{other.name} eats #{@name}", "Lose"]
     when Spock
@@ -61,11 +61,11 @@ class Scissors < Element
     when Rock
       ["#{other.name} crushes #{@name}", "Lose"]
     when Paper
-      ["#{@name} cuts #{other.name}", "Win"]
+      ["#{@name} cut #{other.name}", "Win"]
     when Scissors
       ["#{@name} equals #{@name}", "Tie"]
     when Lizard
-      ["#{@name} decapitates #{other.name}", "Win"]
+      ["#{@name} decapitate #{other.name}", "Win"]
     when Spock
       ["#{other.name} smashes #{@name}", "Lose"]
     end
@@ -83,7 +83,7 @@ class Lizard < Element
     when Paper
       ["#{@name} eats #{other.name}", "Win"]
     when Scissors
-      ["#{@name} decapitates #{other.name}", "Lose"]
+      ["#{other_name} decapitate #{@name}", "Lose"]
     when Lizard
       ["#{@name} equals #{@name}", "Tie"]
     when Spock

@@ -83,8 +83,8 @@ class Game
 			player1_index = get_player_index(1)	
 			player2_index = get_player_index(2)
 			if valid_player?(player1_index) && valid_player?(player2_index)
-				@players.push(create_player(player1_index))
-				@players.push(create_player(player2_index))
+				@players.push(create_player(player1_index, "Player 1"))
+				@players.push(create_player(player2_index, "Player 2"))
 				break
 			else	# display error message
 				puts "Invalid choice(s) - start over\n\n"
@@ -113,9 +113,9 @@ class Game
 	end
 
 	# create a player
-	def create_player(player_index)
+	def create_player(player_index, new_player_name)
 		new_player = Player.subclasses.reverse[player_index - 1]
-		new_player.new(new_player.name, @history)
+		new_player.new(new_player_name, @history)
 	end
 
 	# checks if move input is valid

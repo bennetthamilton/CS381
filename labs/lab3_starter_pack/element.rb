@@ -87,7 +87,7 @@ class Lizard < Element
     when Lizard
       ["#{@name} equals #{@name}", "Tie"]
     when Spock
-      ["#{other.name} poisons #{@name}", "Win"]
+      ["#{@name} poisons #{other.name}", "Win"]
     end
   end
 

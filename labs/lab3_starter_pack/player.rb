@@ -2,24 +2,21 @@ require_relative "element"
 require_relative "history"
 
 class Player
-  attr_reader :name, :history, :moves
+  attr_accessor :name, :history, :moves, :score
 
   def initialize(name, history = History.new)
     @name = name
     @history = history
     @moves = [Rock.new("Rock"), Paper.new("Paper"), Scissors.new("Scissors"), Lizard.new("Lizard"), Spock.new("Spock")]
+    @score = 0
   end
 
   def play
     fail "This method must be overridden in a subclass"
   end
 
-  def get_score
-    @history.score
-  end
-
   def add_score
-    @history.add_score
+    @score += 1
   end
 
   def get_move
@@ -33,7 +30,6 @@ end
 class StupidBot < Player
   def play
     rock = Rock.new("Rock")
-    # @history.log_play(rock)
     rock
   end
 end
@@ -41,8 +37,7 @@ end
 class RandomBot < Player
   def play
     # ref: https://www.geeksforgeeks.org/ruby-array-sample-function/
-    random = @moves.sample          
-    # @history.log_play(random)
+    random = @moves.sample      
     random
   end
 end
@@ -51,7 +46,6 @@ class IterativeBot < Player
   def play
     current_index = @history.total_plays % @moves.length
     selected = @moves[current_index]
-    # @history.log_play(selected)
     selected
   end
 end
@@ -61,11 +55,9 @@ class LastPlayBot < Player
     
     if @history.total_plays == 0    # first play is always rock
       rock = Rock.new("Rock")
-      # @history.log_play(rock)
       return rock
     else                            # otherwise, play the last move of the opponent
       last_play = @history.opponent_plays.last
-      # @history.log_play(last_play)
       last_play
     end
   end
@@ -80,7 +72,6 @@ class Human < Player
       case input
       when 1..5
         selected = get_move(input)
-        # @history.log_play(selected)
         return selected
       else
         puts "Invalid move - try again"

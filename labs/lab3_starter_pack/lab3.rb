@@ -41,16 +41,20 @@ class Game
 
 		# update scores
 		if result.include?("Win")
-			@players[0].add_score
-		elsif result.include?("Lose")
-			@players[1].add_score
-		elsif result.include?("Tie")											
-			puts "Round was a tie\n\n"
-		else
-			winner = find_winner_of_round								# find winner of the round
-			@rounds += 1																# update rounds
+			@players[0].add_score												# update player 1 score
+			winner = @players[0]												# set winner to player 1
 			display_winner_of(winner, "round")					# display winner of the round
+		elsif result.include?("Lose")
+			@players[1].add_score												# update player 2 score
+			winner = @players[1]												# set winner to player 2
+			display_winner_of(winner, "round")					# display winner of the round
+		else result.include?("Tie")											
+			puts "Round was a tie\n\n"
+			display_results
 		end
+		
+		@rounds += 1																# update rounds
+		
 	end
 
 	# main function
@@ -133,9 +137,9 @@ class Game
 
 	# find the winner of the game
 	def find_winner_of_game
-		if @players[0].get_score > @players[1].get_score
+		if @players[0].score > @players[1].score
 			winner = @players[0]
-		elsif @players[0].get_score < @players[1].get_score
+		elsif @players[0].score < @players[1].score
 			winner = @players[1]
 		else
 			winner = nil
@@ -144,7 +148,7 @@ class Game
 
 	# display final score results
 	def display_results
-		puts "Final score is #{@players[0].get_score} to #{@players[1].get_score}"
+		puts "Final score is #{@players[0].score} to #{@players[1].score}"
 	end
 
 	# display the winner of the round

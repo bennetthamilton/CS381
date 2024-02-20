@@ -90,7 +90,7 @@ class Game
 				puts "Invalid choice(s) - start over\n\n"
 			end
 		end
-		puts "#{players[0].name} vs. #{players[1].name}\n\n"
+		puts "#{players[0].class.name} vs. #{players[1].class.name}\n\n" # TODO: return class names
 	end
 
 	# display player options

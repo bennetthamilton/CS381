@@ -12,6 +12,8 @@ require_relative "history"   # uncomment to load history.rb
 
 # constants
 ROUNDS = 5
+NUM_PLAYERS_SUBS = 5
+NUM_ELEMENTS_SUBS = 5
 
 class Game
 	attr_accessor :rounds, :players, :history
@@ -90,37 +92,42 @@ class Game
 				puts "Invalid choice(s) - start over\n\n"
 			end
 		end
-		puts "#{players[0].class.name} vs. #{players[1].class.name}\n\n" # TODO: return class names
+		puts "#{players[0].class.name} vs. #{players[1].class.name}\n\n"
+	end
+
+	# get player subclasses
+	def player_subclasses
+		ObjectSpace.each_object(Class).select { |klass| klass < Player }
 	end
 
 	# display player options
 	def display_player_options
 		puts "Please choose two players: "
-		Player.subclasses.reverse.each_with_index do |subclass, index|
+		player_subclasses.reverse.each_with_index do |subclass, index|
       puts "(#{index + 1}) #{subclass.name}"
     end
 	end
 
 	# get player input
 	def get_player_index(player_number)
-		print "Select player #{player_number}: "
+		print "Select player #{player_number}:"
 		gets.chomp.to_i
 	end
 
 	# checks if player input is valid
 	def valid_player?(index)
-		index.between?(1, Player.subclasses.length)
+		index.between?(1, NUM_PLAYERS_SUBS)
 	end
 
 	# create a player
 	def create_player(player_index, new_player_name)
-		new_player = Player.subclasses.reverse[player_index - 1]
+		new_player = player_subclasses.reverse[player_index - 1]
 		new_player.new(new_player_name, @history)
 	end
 
 	# checks if move input is valid
 	def valid_move?(index)
-		index.between?(1, Element.subclasses.length)
+		index.between?(1, NUM_ELEMENTS_SUBS)
 	end
 
 	# find the winner of the round

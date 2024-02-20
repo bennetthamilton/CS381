@@ -44,7 +44,7 @@ end
 
 class IterativeBot < Player
   def play
-    current_index = (@history.total_plays / 2) % @moves.length
+    current_index = (@history.round_number) % @moves.length
     selected = @moves[current_index]
     selected
   end

@@ -16,6 +16,10 @@ class History
   end
 
   def total_plays
+    @plays.length + @opponent_plays.length
+  end
+
+  def round_number
     @plays.length
   end
 end

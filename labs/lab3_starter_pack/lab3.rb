@@ -50,7 +50,6 @@ class Game
 			display_winner_of(winner, "round")					# display winner of the round
 		else result.include?("Tie")											
 			puts "Round was a tie\n\n"
-			display_results
 		end
 		
 		@rounds += 1																# update rounds
@@ -154,7 +153,7 @@ class Game
 	# display the winner of the round
 	def display_winner_of(winner, type)
 		if winner.nil?
-			puts "It's a tie!\n\n"
+			puts "Game was a draw\n\n"
 		else
 			puts "#{winner.name} wins the #{type}!\n\n"
 		end

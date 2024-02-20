@@ -37,9 +37,13 @@ class Game
 		result = @players[0].get_move.compare_to(@players[1].get_move)	# compare moves (player[0] vs. player[1]
 		puts result																# display result
 
-		winner = find_winner_of_round							# find winner of the round
-		@rounds += 1															# update rounds
-		display_winner_of(winner, "round")				# display winner of the round
+		if result.include?("Tie")										# update scores
+			puts "Round was a tie\n\n"
+		else
+			winner = find_winner_of_round							# find winner of the round
+			@rounds += 1															# update rounds
+			display_winner_of(winner, "round")				# display winner of the round
+		end
 	end
 
 	# main function

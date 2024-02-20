@@ -111,9 +111,9 @@ class Game
 
 	# find the winner of the round
 	def find_winner_of_round
-		if @players[0].score > @players[1].score
+		if @players[0].get_score > @players[1].get_score
 			winner = @players[0]
-		elsif @players[0].score < @players[1].score
+		elsif @players[0].get_score < @players[1].get_score
 			winner = @players[1]
 		else
 			winner = nil
@@ -122,9 +122,9 @@ class Game
 
 	# find the winner of the game
 	def find_winner_of_game
-		if @players[0].score > @players[1].score
+		if @players[0].get_score > @players[1].get_score
 			winner = @players[0]
-		elsif @players[0].score < @players[1].score
+		elsif @players[0].get_score < @players[1].get_score
 			winner = @players[1]
 		else
 			winner = nil
@@ -133,7 +133,7 @@ class Game
 
 	# display final score results
 	def display_results
-		print "Final score is #{@players[0].score} to #{@players[1].score}"
+		print "Final score is #{@players[0].get_score} to #{@players[1].get_score}"
 	end
 
 	# display the winner of the round

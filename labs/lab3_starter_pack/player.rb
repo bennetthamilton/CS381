@@ -13,6 +13,10 @@ class Player
   def play
     fail "This method must be overridden in a subclass"
   end
+
+  def get_score
+    @history.score
+  end
 end
 
 

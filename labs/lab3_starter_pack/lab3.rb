@@ -59,7 +59,7 @@ class Game
 
 	# display the welcome message
 	def welcome
-		puts "Welcome to Rock, Paper, Scissors, Lizard, Spock!"
+		puts "Welcome to Rock, Paper, Scissors, Lizard, Spock!\n\n"
 	end
 
 	# select players
@@ -73,9 +73,10 @@ class Game
 				@players.push(create_player(player2_index))
 				break
 			else	# display error message
-				puts 'Invalid choice(s) - start over'
+				puts "Invalid choice(s) - start over\n\n"
 			end
 		end
+		puts "#{players[0].name} vs. #{players[1].name}\n\n"
 	end
 
 	# display player options
@@ -88,7 +89,7 @@ class Game
 
 	# get player input
 	def get_player_index(player_number)
-		puts "Select player #{player_number}: "
+		print "Select player #{player_number}: "
 		gets.chomp.to_i
 	end
 

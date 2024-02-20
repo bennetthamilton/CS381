@@ -18,10 +18,14 @@ class Player
     @history.score
   end
 
+  def add_score
+    @history.add_score
+  end
+
   def get_move
     @history.plays.last
   end
-  
+
 end
 
 

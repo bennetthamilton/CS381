@@ -17,6 +17,11 @@ class Player
   def get_score
     @history.score
   end
+
+  def get_move
+    @history.plays.last
+  end
+  
 end
 
 

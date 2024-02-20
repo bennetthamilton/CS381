@@ -32,9 +32,9 @@ class Game
 			puts "#{player.name} chose #{move.name}"	# display player move
 			@history.log_play(move)										# update history
 		end
-
+		
 		# compare moves
-		result = @history.plays.last.compare_to(@history.opponent_plays.last)
+		result = @players[0].get_move.compare_to(@players[1].get_move)	# compare moves (player[0] vs. player[1]
 		puts result																# display result
 
 		winner = find_winner_of_round							# find winner of the round

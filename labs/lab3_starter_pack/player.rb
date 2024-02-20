@@ -44,7 +44,7 @@ end
 
 class IterativeBot < Player
   def play
-    current_index = @history.total_plays % @moves.length
+    current_index = (@history.total_plays / 2) % @moves.length
     selected = @moves[current_index]
     selected
   end
@@ -52,7 +52,6 @@ end
 
 class LastPlayBot < Player
   def play
-    
     if @history.total_plays == 0    # first play is always rock
       rock = Rock.new("Rock")
       return rock

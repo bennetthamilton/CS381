@@ -14,13 +14,15 @@ require_relative "history"   # uncomment to load history.rb
 ROUNDS = 5
 
 class Game
-	attr_accessor :rounds, :players, :history
+	attr_accessor :rounds, :players, :history, :player, :player_subclasses
 
 	# initialize game
 	def initialize(rounds)
 		@rounds = rounds
 		@players = []
 		@history = History.new
+		@player = Player.new("Player")
+		@player_subclasses = [StupidBot.new("StupidBot"), RandomBot.new("RandomBot"), IterativeBot.new("IterativeBot"), LastPlayBot.new("LastPlayBot"), Human.new("Human")]
 	end
 
 	# play a single round
@@ -96,7 +98,7 @@ class Game
 	# display player options
 	def display_player_options
 		puts "Please choose two players: "
-		Player.subclasses.reverse.each_with_index do |subclass, index|
+		@player_subclasses.each_with_index do |subclass, index| #TODO
       puts "(#{index + 1}) #{subclass.name}"
     end
 	end
@@ -109,18 +111,18 @@ class Game
 
 	# checks if player input is valid
 	def valid_player?(index)
-		index.between?(1, Player.subclasses.length)
+		index.between?(1, 5)
 	end
 
 	# create a player
 	def create_player(player_index, new_player_name)
-		new_player = Player.subclasses.reverse[player_index - 1]
+		new_player = @player_subclasses.reverse[player_index - 1] #TODO
 		new_player.new(new_player_name, @history)
 	end
 
 	# checks if move input is valid
 	def valid_move?(index)
-		index.between?(1, Element.subclasses.length)
+		index.between?(1, 5)
 	end
 
 	# find the winner of the round

@@ -1,6 +1,6 @@
 
 class Element
-  attr_accessor :name
+  attr_accessor :name, :subclasses
 
   def initialize(name)
     @name = name

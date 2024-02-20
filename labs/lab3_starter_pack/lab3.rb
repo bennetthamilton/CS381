@@ -100,7 +100,7 @@ class Game
 
 	# create a player
 	def create_player(player_index)
-		new_player = Player.subclasses[player_index - 1]
+		new_player = Player.subclasses.reverse[player_index - 1]
 		new_player.new(new_player.name, @history)
 	end
 

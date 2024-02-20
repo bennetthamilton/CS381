@@ -24,8 +24,8 @@ class Game
 	end
 
 	# play a single round
-	def play_round
-		puts "Round #{@rounds}"
+	def play_round(current_round)
+		puts "Round #{current_round}"
 		# get player moves
 		@players.each do |player|
 			move = player.play												# get player move
@@ -46,8 +46,8 @@ class Game
 	def play_game
 		welcome
 		select_players
-		while rounds > 0
-			play_round
+		(1..@rounds).each do |current_round|	# play rounds (1..@rounds
+			play_round(current_round)
 		end
 		winner = find_winner_of_game				# find winner of the game
 		display_results											# display final score results

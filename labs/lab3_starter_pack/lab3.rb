@@ -37,18 +37,18 @@ class Game
 
 		# compare moves
 		result = move1.compare_to(move2)							# compare moves
-		puts result																		# display result
+		puts result[0]																# display result
 
 		# update scores
-		if result.include?("Win")
+		if result[1].include?("Win")
 			@players[0].add_score												# update player 1 score
 			winner = @players[0]												# set winner to player 1
 			display_winner_of(winner, "round")					# display winner of the round
-		elsif result.include?("Lose")
+		elsif result[1].include?("Lose")
 			@players[1].add_score												# update player 2 score
 			winner = @players[1]												# set winner to player 2
 			display_winner_of(winner, "round")					# display winner of the round
-		else result.include?("Tie")											
+		else 																					# result.include?("Tie")											
 			puts "Round was a tie\n\n"
 		end
 		

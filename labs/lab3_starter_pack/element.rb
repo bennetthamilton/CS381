@@ -41,7 +41,7 @@ class Paper < Element
     when Rock
       ["#{@name} covers #{other.name}", "Win"]
     when Paper
-      ["#{@name} equals #{@name}, Tie"]
+      ["#{@name} equals #{@name}", "Tie"]
     when Scissors
       ["#{other.name} cuts #{@name}", "Lose"]
     when Lizard

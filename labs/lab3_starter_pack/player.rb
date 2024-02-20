@@ -33,7 +33,7 @@ end
 class StupidBot < Player
   def play
     rock = Rock.new("Rock")
-    @history.log_play(rock)
+    # @history.log_play(rock)
     rock
   end
 end
@@ -42,7 +42,7 @@ class RandomBot < Player
   def play
     # ref: https://www.geeksforgeeks.org/ruby-array-sample-function/
     random = @moves.sample          
-    @history.log_play(random)
+    # @history.log_play(random)
     random
   end
 end
@@ -51,7 +51,7 @@ class IterativeBot < Player
   def play
     current_index = @history.total_plays % @moves.length
     selected = @moves[current_index]
-    @history.log_play(selected)
+    # @history.log_play(selected)
     selected
   end
 end
@@ -61,11 +61,11 @@ class LastPlayBot < Player
     
     if @history.total_plays == 0    # first play is always rock
       rock = Rock.new("Rock")
-      @history.log_play(rock)
+      # @history.log_play(rock)
       return rock
     else                            # otherwise, play the last move of the opponent
       last_play = @history.opponent_plays.last
-      @history.log_play(last_play)
+      # @history.log_play(last_play)
       last_play
     end
   end
@@ -80,7 +80,7 @@ class Human < Player
       case input
       when 1..5
         selected = get_move(input)
-        @history.log_play(selected)
+        # @history.log_play(selected)
         return selected
       else
         puts "Invalid move - try again"

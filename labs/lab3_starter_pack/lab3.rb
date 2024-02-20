@@ -71,6 +71,7 @@ class Game
 			if valid_player?(player1_index) && valid_player?(player2_index)
 				@players.push(create_player(player1_index))
 				@players.push(create_player(player2_index))
+				break
 			else	# display error message
 				puts 'Invalid choice(s) - start over'
 			end
@@ -80,7 +81,7 @@ class Game
 	# display player options
 	def display_player_options
 		puts "Please choose two players: "
-		Player.subclasses.each_with_index do |subclass, index|
+		Player.subclasses.reverse.each_with_index do |subclass, index|
       puts "(#{index + 1}) #{subclass.name}"
     end
 	end

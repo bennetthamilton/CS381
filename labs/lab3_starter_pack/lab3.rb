@@ -25,7 +25,7 @@ class Game
 
 	# play a single round
 	def play_round(current_round)
-		puts "Round #{current_round}"
+		puts "Round #{current_round}:"
 		# get player moves
 		@players.each do |player|
 			move = player.play												# get player move
@@ -133,15 +133,15 @@ class Game
 
 	# display final score results
 	def display_results
-		print "Final score is #{@players[0].get_score} to #{@players[1].get_score}"
+		puts "Final score is #{@players[0].get_score} to #{@players[1].get_score}"
 	end
 
 	# display the winner of the round
 	def display_winner_of(winner, type)
 		if winner.nil?
-			puts "It's a tie!"
+			puts "It's a tie!\n\n"
 		else
-			puts "#{winner.name} wins the #{type}!"
+			puts "#{winner.name} wins the #{type}!\n\n"
 		end
 	end
 

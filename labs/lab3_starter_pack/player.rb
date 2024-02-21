@@ -78,7 +78,8 @@ class Human < Player
         selected = get_move(input)
         return selected
       else
-        puts "Invalid move - try again"
+        puts "Invalid move - try again\n"
+        display_moves
       end
     end
   end

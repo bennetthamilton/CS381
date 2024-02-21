@@ -52,11 +52,16 @@ end
 
 class LastPlayBot < Player
   def play
-    if @history.total_plays == 0    # first play is always rock
-      rock = Rock.new("Rock")
-      return rock
-    else                            # otherwise, play the last move of the opponent
+    # check if player 1 or 2 and get last play
+    if @name == "Player 1"
       last_play = @history.opponent_plays.last
+    else 
+      last_play = @history.plays.last
+    end
+
+    if @history.opponent_plays.empty?    # first play is always rock
+      return Rock.new("Rock")
+    else                                  # otherwise, play the last move of the opponent
       last_play
     end
   end

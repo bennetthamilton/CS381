@@ -83,7 +83,7 @@ class Lizard < Element
     when Paper
       ["#{@name} eats #{other.name}", "Win"]
     when Scissors
-      ["#{other_name} decapitate #{@name}", "Lose"]
+      ["#{other.name} decapitate #{@name}", "Lose"]
     when Lizard
       ["#{@name} equals #{@name}", "Tie"]
     when Spock

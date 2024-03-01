@@ -9,18 +9,23 @@
 
 
 (define (member? e lst)
-  ; Check if the list is empty
-  (if (null? lst)
-      #f                         ; if the list is empty, e is not a member, return false
-      (if (eq? e (car lst))
-          #t                     ; if e is equal to the first element, it's a member 
-          (member? e (cdr lst))  ; otherwise, iterate the rest of the list
+  (if (null? lst)               ; if the list is empty, e is not a member, return false
+      #f                         
+      (if (eq? e (car lst))     ; if e is equal to the first element, it's a member, return true
+          #t                     
+          (member? e (cdr lst)) ; otherwise, iterate the rest of the list
       )
   )
 ) 
 
 (define (set? lst) 
-  ; complete this function definition 
+  (if (null? lst)                       ; if the list is empty, it's a set, return true
+      #t
+      (if (member? (car lst) (cdr lst)) ; if the first element is a member of the rest of the list, it's not a set
+          #f
+          (set? (cdr lst))              ; otherwise, iterate the rest of the list
+      )
+  ) 
 )
 
 (define (union lst1 lst2)

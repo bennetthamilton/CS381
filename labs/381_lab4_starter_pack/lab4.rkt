@@ -66,9 +66,18 @@
   )
 )
 
-;;; (define (flatten lst1 lst2)
-;;;   ; complete this function definition
-;;; )
+(define (flatten lst1 lst2)
+  ; if the first list is empty, return the second list
+  (if (null? lst1) 
+      lst2
+      ; if the first element of the first list is a list, flatten it and add it to the rest of the first list
+      (if (list? (car lst1)) 
+          (flatten (car lst1) (flatten (cdr lst1) lst2))
+          ; otherwise, add the first element to the rest of the first list
+          (cons (car lst1) (flatten (cdr lst1) lst2)) 
+      )
+  )
+)
 
 ;;;;;;;;;;;;;;;;;
 ;  DO NOT EDIT  ;

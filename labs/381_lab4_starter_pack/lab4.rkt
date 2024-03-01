@@ -41,12 +41,20 @@
 )
 
 (define (intersect lst1 lst2)
-  ; complete this function definition
+  ; if the first list is empty, return an empty list
+  (if (null? lst1) 
+      '()
+      ; if the first element of the first list is a member of the second list, add it to the intersection 
+      (if (member? (car lst1) lst2) 
+          (cons (car lst1) (intersect (cdr lst1) lst2))
+          (intersect (cdr lst1) lst2) ; otherwise, iterate the rest of the first list
+      )
+  )
 )
 
-;;; (define (difference lst1 lst2)
-;;;   ; complete this function definition
-;;; )
+(define (difference lst1 lst2)
+  ; complete this function definition
+)
 
 ;;; (define (flatten lst1 lst2)
 ;;;   ; complete this function definition

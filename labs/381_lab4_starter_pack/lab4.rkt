@@ -35,7 +35,8 @@
       ; if the first element of the first list is a member of the second list, iterate the rest of the first list
       (if (member? (car lst1) lst2) 
           (union (cdr lst1) lst2)
-          (cons (car lst1) (union (cdr lst1) lst2)) ; otherwise, add the first element to the union of the rest of the first list and the second list
+          ; otherwise, add the first element to the union of the rest of the first list and the second list
+          (cons (car lst1) (union (cdr lst1) lst2)) 
       )
   )
 )
@@ -53,7 +54,16 @@
 )
 
 (define (difference lst1 lst2)
-  ; complete this function definition
+  ; if the first list is empty, return an empty list
+  (if (null? lst1) 
+      '()
+      ; if the first element of the first list is a member of the second list, iterate the rest of the first list
+      (if (member? (car lst1) lst2) 
+          (difference (cdr lst1) lst2)
+          ; otherwise, add the first element to the difference of the rest of the first list and the second list
+          (cons (car lst1) (difference (cdr lst1) lst2)) 
+      )
+  )
 )
 
 ;;; (define (flatten lst1 lst2)

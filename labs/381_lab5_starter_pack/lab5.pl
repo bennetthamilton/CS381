@@ -62,7 +62,13 @@ grandmother(GM,GC):- grandparent(GM,GC), female(GM).
 grandchild(GC,GP):- grandparent(GP,GC).
 
 % ancestor/2
+ancestor(A,D):- parent(A,D).
+ancestor(A,D):- parent(A,X), ancestor(X,D).
+
 % descendant/2
+descendant(D,A):- parent(A,D).
+descendant(D,A):- parent(X,D), descendant(X,A).
+
 % older/2
 % younger/2
 % regentWhenBorn/2

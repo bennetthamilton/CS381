@@ -12,6 +12,7 @@
 % enables piping in tests
 portray(Term) :- atom(Term), format("~s", Term).
 
+
 % mother/2
 mother(M,C):- parent(M,C), female(M).
 
@@ -26,10 +27,20 @@ spouse(X,Y):- married(Y,X).
 child(C,P):- parent(P,C).
 
 % son/2
+son(S,P):- child(S,P), male(S).
+
 % daughter/2
+daughter(D,P):- child(S,P), female(D).
+
 % sibling/2
+sibling(X,Y):- parent(P,X), parent(P,Y), X \= Y.
+
 % brother/2
+brother(B,X):- sibling(B,X), male(B).
+
 % sister/2
+sister(S,X):- sibling(S,X), female(S).
+
 % uncle/2       
 % aunt/2
 % grandparent/2

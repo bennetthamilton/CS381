@@ -30,7 +30,7 @@ child(C,P):- parent(P,C).
 son(S,P):- child(S,P), male(S).
 
 % daughter/2
-daughter(D,P):- child(S,P), female(D).
+daughter(D,P):- child(D,P), female(D).
 
 % sibling/2
 sibling(X,Y):- parent(P,X), parent(P,Y), X \= Y.

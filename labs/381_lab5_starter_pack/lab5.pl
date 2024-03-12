@@ -29,3 +29,15 @@ child(C,P):- parent(P,C).
 % sibling/2
 % brother/2
 % sister/2
+% uncle/2       
+% aunt/2
+% grandparent/2
+% grandfather/2
+% grandmother/2
+% grandchild/2
+% ancestor/2
+% descendant/2
+% older/2
+% younger/2
+% regentWhenBorn/2
+% cousin/2

@@ -20,6 +20,7 @@ father(F,C):- parent(F,C), male(F).
 
 % spouse/2
 spouse(X,Y):- married(X,Y).
+spouse(X,Y):- married(Y,X).
 
 % child/2
 child(C,P):- parent(P,C).

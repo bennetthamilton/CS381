@@ -42,11 +42,11 @@ brother(B,X):- sibling(B,X), male(B).
 sister(S,X):- sibling(S,X), female(S).
 
 % aunt/2
-aunt(A,N):- parent(P,N), sibling(A,P), female(A).
+aunt(A,N):- parent(P,N), sister(A,P).
 aunt(A,N):- parent(P,N), spouse(A,S), sibling(P,S), female(A).
 
 % uncle/2 
-uncle(U,N):- parent(P,N), sibling(U,P), male(U).
+uncle(U,N):- parent(P,N), brother(U,P).
 uncle(U,N):- parent(P,N), spouse(U,S), sibling(P,S), male(U).
 
 % grandparent/2

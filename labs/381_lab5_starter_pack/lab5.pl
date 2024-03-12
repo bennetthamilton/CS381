@@ -41,12 +41,24 @@ brother(B,X):- sibling(B,X), male(B).
 % sister/2
 sister(S,X):- sibling(S,X), female(S).
 
-% uncle/2       
+% uncle/2 
+uncle(U,N):- parent(P,N), brother(U,P).
+
 % aunt/2
+aunt(A,N):- parent(P,N), sister(A,P).
+
 % grandparent/2
+grandparent(GP,GC):- parent(P,GC), parent(GP,P).
+
 % grandfather/2
+grandfather(GF,GC):- grandparent(GF,GC), male(GF).
+
 % grandmother/2
+grandmother(GM,GC):- grandparent(GM,GC), female(GM).
+
 % grandchild/2
+grandchild(GC,GP):- grandparent(GP,GC).
+
 % ancestor/2
 % descendant/2
 % older/2

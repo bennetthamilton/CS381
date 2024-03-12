@@ -47,7 +47,7 @@ aunt(A,N):- parent(P,N), spouse(A,S), brother(S,P).
 
 % uncle/2 
 uncle(U,N):- parent(P,N), brother(U,P).
-uncle(U,N):- parent(P,N), spouse(U,S), sister(S,P)
+uncle(U,N):- parent(P,N), spouse(U,S), sister(S,P).
 
 % grandparent/2
 grandparent(GP,GC):- parent(P,GC), parent(GP,P).

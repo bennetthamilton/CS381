@@ -79,3 +79,4 @@ younger(Y,O):- born(Y,BY), born(O,BO), BY < BO.
 regentWhenBorn(P,Person):- born(Person,Year), reigned(P,Start,End), Year >= Start, Year =< End.
 
 % cousin/2
+cousin(C1,C2):- parent(P1,C1), parent(P2,C2), sibling(P1,P2).

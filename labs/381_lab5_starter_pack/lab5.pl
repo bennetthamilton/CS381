@@ -70,6 +70,12 @@ descendant(D,A):- parent(A,D).
 descendant(D,A):- parent(X,D), descendant(X,A).
 
 % older/2
+older(O,Y):- born(O,BO), born(Y,BY), BO < BY.
+
 % younger/2
+younger(Y,O):- born(Y,BY), born(O,BO), BY < BO.
+
 % regentWhenBorn/2
+regentWhenBorn(P,Person):- born(Person,Year), reigned(P,Start,End), Year >= Start, Year =< End.
+
 % cousin/2

@@ -33,7 +33,7 @@ son(S,P):- child(S,P), male(S).
 daughter(D,P):- child(D,P), female(D).
 
 % sibling/2
-sibling(X,Y):- parent(P,X), parent(P,Y), X \= Y.
+sibling(X,Y):- father(F,X), mother(M,X), father(F,Y), mother(M,Y) X \= Y.
 
 % brother/2
 brother(B,X):- sibling(B,X), male(B).
@@ -76,7 +76,7 @@ older(X,Y):- born(X,BX), born(Y,BY), BX < BY.
 younger(X,Y):- born(X,BX), born(Y,BY), BX > BY.
 
 % regentWhenBorn/2
-regentWhenBorn(P,Person):- born(Person,Year), reigned(P,Start,End), Year >= Start, Year =< End.
+regentWhenBorn(P,Person):- born(Person,Year), reigned(P,Start,End), Year > Start, Year < End.
 
 % cousin/2
 cousin(C1,C2):- parent(P1,C1), parent(P2,C2), sibling(P1,P2).

@@ -33,7 +33,7 @@ son(S,P):- child(S,P), male(S).
 daughter(D,P):- child(D,P), female(D).
 
 % sibling/2
-sibling(X,Y):- father(F,X), mother(M,X), father(F,Y), mother(M,Y) X \= Y.
+sibling(X,Y):- father(F,X), mother(M,X), father(F,Y), mother(M,Y), X \= Y.
 
 % brother/2
 brother(B,X):- sibling(B,X), male(B).
